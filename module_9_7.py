@@ -2,6 +2,8 @@ def is_prime(func):
   def wrapper(*args):
       result = func(*args)
       prime = False
+      if result == 1:
+          return 'Единица исключена из определения'
       for i in range(0, result + 1):
           if i > 1:
               if result != i and result % i == 0:
@@ -9,7 +11,6 @@ def is_prime(func):
                   break
               else:
                   prime = True
-                  break
       if prime:
           print('Простое')
           return result
